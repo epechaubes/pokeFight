@@ -91,7 +91,7 @@
 		</select>
 	</p> -->
 	
-	<a href="combat.php"><button class="lancerCombat">Lancer le combat</button></a>
+	<button class="lancerCombat">Lancer le combat</button>
 
 	<script src="scriptAvance.js" type="text/javascript"></script>
 </body>

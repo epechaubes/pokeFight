@@ -3,6 +3,12 @@
 var monPokemon_json = sessionStorage.getItem("monPokemon");
 let monObjetPokemon = JSON.parse(monPokemon_json);
 
+// Redirection à la page de selection du pokemon //
+
+function RedirectionJavascriptVersIndex(){
+    document.location.href="http://localhost/projets/pokefightBis/index.php"; 
+}
+
 // Objet de combat //
 
 class Pokemon{
@@ -142,6 +148,15 @@ function advChoiceAttack(){
     return array[Math.floor(Math.random()*4)].name_attack;
 }
 
+// Fonction fin de combat //
+
+function endOfFight(pdvRestant){
+    if(pdvRestant <= 0){
+        return true;
+    }
+    return false;
+}
+
 // Fonction déroulement d'un tour //
 
 function fightTurn(attackMonPoke){
@@ -154,4 +169,14 @@ function fightTurn(attackMonPoke){
     fight.attack2on1(attackPokeAdv);
     console.log(monPokemon.name_pokemon+" lance "+attackMonPoke+" !\n\n");
     actuLifeBarre(monPokemon.pdv_pokemon, monPokemon.name_pokemon);
+
+    if(endOfFight(pokeAdv.pdv_pokemon)){
+        alert("Le pokemon adverse est K.O. Vous avez gagné !\nChoisissez un nouveau pokemon.")
+        RedirectionJavascriptVersIndex();
+    }
+    if(endOfFight(monPokemon.pdv_pokemon)){
+        alert("Votre pokemon est K.O. Vous avez perdu ...\nChoisissez un nouveau pokemon.")
+        RedirectionJavascriptVersIndex();
+    }
 }
+
