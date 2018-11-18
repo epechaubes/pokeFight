@@ -163,17 +163,18 @@ function fightTurn(attackMonPoke){
     let attackPokeAdv = advChoiceAttack();
 
     fight.attack1on2(attackMonPoke);
-    console.log(pokeAdv.name_pokemon+" lance "+attackPokeAdv+" !");
+    console.log(monPokemon.name_pokemon+" lance "+attackMonPoke+" !");
     actuLifeBarre(pokeAdv.pdv_pokemon, pokeAdv.name_pokemon);
-
-    fight.attack2on1(attackPokeAdv);
-    console.log(monPokemon.name_pokemon+" lance "+attackMonPoke+" !\n\n");
-    actuLifeBarre(monPokemon.pdv_pokemon, monPokemon.name_pokemon);
 
     if(endOfFight(pokeAdv.pdv_pokemon)){
         alert("Le pokemon adverse est K.O. Vous avez gagné !\nChoisissez un nouveau pokemon.")
         RedirectionJavascriptVersIndex();
     }
+
+    fight.attack2on1(attackPokeAdv);
+    console.log(pokeAdv.name_pokemon+" lance "+attackPokeAdv+" !\n\n");
+    actuLifeBarre(monPokemon.pdv_pokemon, monPokemon.name_pokemon);
+    
     if(endOfFight(monPokemon.pdv_pokemon)){
         alert("Votre pokemon est K.O. Vous avez perdu ...\nChoisissez un nouveau pokemon.")
         RedirectionJavascriptVersIndex();
